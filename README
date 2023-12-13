@@ -1,0 +1,52 @@
+CERINTA 1:
+	Pentru implementarea primei cerinte, am urmat acesti pasi:
+- am deschis fisierul de input si pe cel de output si am citit primele 3 randuri din fisierul PPM;
+- am initializat matricea pixelilor si am citit in ea elementele de tip RGB din fisierul PPM
+- am luat factorul din linia de comanda
+- am creat arborele cu funtia aferenta 
+- am scris in fisierul de output informatiile cerute cu ajutorul functiilor aferente
+- am dezalocat memoria ocupata pe parcursul implementarii
+	Pentru implementare, am folosit urmatoarele functii:
+- unsigned long long calculate_red(int x, int y, int size, RGB **Matrix) -> calculeaza valoarea canalului de culoare rosie
+- unsigned long long calculate_green(int x, int y, int size, RGB **Matrix) -> calculeaza valoarea canalului de culoare verde
+- unsigned long long calculate_blue(int x, int y, int size, RGB **Matrix) -> calculeaza valoarea canalului de culoare albastra
+- unsigned long long calculate_mean(int x, int y, int size, unsigned long long red, unsigned long long green, unsigned long long blue, RGB **Matrix) -> calculeaza valoarea medie a canalelor de culoare
+- TArb build_tree(int x, int y, int size, int factor, int level, RGB **Matrix) -> creeaza arborele cuaternar
+- int number_of_levels(TArb Tree) -> calculeaza numarul de niveluri din arbore
+- int number_of_leaves(TArb Tree) -> calculeaza numarul de frunze din arbore
+- int biggest_square(TArb Tree, int minim, int nivel) -> calculeaza primul nivel din arbore la care se intalneste o frunza
+
+CERINTA 2:
+	Pentru implementarea celei de-a doua cerinte, am urmat acesti pasi:
+- am deschis fisierul de input si pe cel de output si am citit primele 3 randuri din fisierul PPM;
+- am initializat matricea pixelilor si am citit in ea elementele de tip RGB din fisierul PPM
+- am luat factorul din linia de comanda
+- am creat arborele cu funtia aferenta 
+- am scris in fisierul compresat inforamtiile necesare, cu ajutorul functiei aferente
+- am dezalocat memoria ocupata pe parcursul implementarii
+	Pentru implemenatre, am folosit urmatoarele functii:
+- TQueue* InitQ() -> initializeaza o coada vida
+- void IntrQ(TQueue* q, TArb A) -> introduce un element in coada
+- TArb ExtrQ(TQueue* q) -> extrage primul element din coada
+- void write_in_compressed_file(TArb Tree, FILE *file) -> scrie informariile legate de fiecare nod din arbore in fisierul comprimat
+
+CERINTA 3:
+	Pentru implementarea celei de-a treia cerinte, am urmat acesti pasi:
+- am deschis fisierul de input si cel de output si am citit din fisierul comprimat marimea imaginii
+- am scris in fisierul PPM primele trei randuri (tipul P6, dimensiunile imaginii si valoarea maxima a intensitatii culorilor)
+- am alocat memorie pentru arborele cuaternar
+- am construit arborele cuaternar cu ajutorul functiei aferente
+- am creat matricea de pixeli
+- am pus elementele corespunzatoare in matrice, cu ajutorul functiei aferente
+- am scris in fisierul PPM toate valorile din canalele de culoare din fiecare element al matricii
+- am dezalocat memoria ocupata pe parcursul implementarii
+	Pentru implementare, am folosit urmatoarele functii:
+- TQueue* InitQ()
+- void IntrQ(TQueue* q, TArb A)
+- TArb ExtrQ(TQueue* q)
+- void build_tree_from_compressed_file(FILE *input, TArb my_Tree) -> creeaza arborele cu ajutorul informatiilor din fisierul comprimat
+- void put_elements_in_matrix(RGB **Matrix, TArb Tree, int size, int x, int y) -> scrie in matrice elementele de tip RGB care urmeaza sa fie transmise in fisierul PPM
+
+NOTA: Pentru dezalocarea memoriei ocupate de arborele cuaternar, in toate cele 3 cerinte, am folosit urmatoarele functii:
+- void destroy(TArb Tree) -> distruge toate nodurile arborelui
+- void destroy_tree(TArb *Tree) -> distruge nodurile arborelui si il face nul
